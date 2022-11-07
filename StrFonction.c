@@ -1,4 +1,6 @@
-int	ft_strlen(char *str)
+#include "libft.h"
+
+int	ft_strlen(const char *str)
 {
 	int	i;
 	
@@ -23,11 +25,11 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	size_t i;
 
 	if (!size)
-			return (ft_strlen((char *)src));i
+			return (ft_strlen((char *)src));
 	i = 0;
 	while (i < size - 1 && src[i])
 	{
-		if (i <= (size_t)ft_strlen((char *)src)
+		if (i <= (size_t)ft_strlen((char *)src))
 				dest[i] = src[i];
 		else
 				dest[i] = 0;
@@ -73,21 +75,21 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (destlen + j);
 }
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		if (s[i] == c)
-			return (s[i]);
+			return (&((char *)s)[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int i;
 
@@ -97,10 +99,10 @@ char	*strrchr(const char *s, int c)
 	while (i >= 0)
 	{
 		if (s[i] == c)
-			return (s[i]);
+			return (&((char *)s)[i]);
 		i--;
 	}
-	return (0);
+	return (NULL);
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -133,4 +135,16 @@ char *ft_strnstr(const char *to, const char *find, size_t len)
 			i++;
 	}
 	return (NULL);
+}
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		(f)(i, &s[i]);
+		i++;
+	}
 }
