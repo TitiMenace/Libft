@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 05:56:59 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/08 05:59:08 by tschecro         ###   ########.fr       */
+/*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
+/*   Updated: 2022/11/08 06:48:28 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 # define LIBFT_H
 
 #include <unistd.h>
-#include <stddef.h>
 #include <stdlib.h>
+#include <stddef.h>
 
-typedef struct	s_list
+typdef struct	s_list
 {
 	void	*content;
 	struct s_list	*next;
 }		t_list;
+
 
 /* -------------------------------------------------------------------------- */
 /*                          FILE = ./ft_lstdelone.c                           */
@@ -191,7 +192,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size);
 /* -------------------------------------------------------------------------- */
 /*                           FILE = ./ft_lstiteri.c                           */
 /* -------------------------------------------------------------------------- */
-void	ft_lstiter(t_list *lst void (*f)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 /* -------------------------------------------------------------------------- */
 /*                            FILE = ./ft_lstmap.c                            */
