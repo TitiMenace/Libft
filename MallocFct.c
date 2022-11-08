@@ -6,6 +6,8 @@ char	*ft_strdup(const char *str)
 	int	i;
 
 	dest = malloc(sizeof(char) * ft_strlen(str) + 1);
+	if(!dest)
+		return (NULL);
 	i = 0;
 	while (str[i])
 	{
@@ -238,11 +240,11 @@ char	*ft_strmapi(char const *s, char(*f)(unsigned int, char*))
 
 	i = 0;
 	dest = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!out)
+	if (!dest)
 		return (NULL);
 	while (i < ft_strlen(s))
 	{
-		dest[i] = (f)(i, s[i]);
+		dest[i] = (f)(i, (char *)(s));
 		i++;
 	}
 	dest[i] = '\0';
