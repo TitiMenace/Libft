@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:55:52 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/08 05:56:09 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/09 06:17:30 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,5 +18,5 @@ int ft_tolower(int c)
 		c = c + 32;
 		return (c);
 	}
-	return (0);
+	return (c);
 }

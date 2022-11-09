@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2022/11/09 06:00:39 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/09 08:54:26 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 typedef struct	s_list
 {
@@ -41,7 +42,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 /* -------------------------------------------------------------------------- */
 /*                            FILE = ./ft_memcpy.c                            */
 /* -------------------------------------------------------------------------- */
-void	*ft_memcpy(void *dest, void *src, size_t count);
+void	*ft_memcpy(const void *dest, const void *src, size_t count);
 
 /* -------------------------------------------------------------------------- */
 /*                            FILE = ./ft_calloc.c                            */
@@ -166,7 +167,7 @@ char	*ft_strchr(const char *s, int c);
 /* -------------------------------------------------------------------------- */
 /*                             FILE = ./ft_atoi.c                             */
 /* -------------------------------------------------------------------------- */
-int	ft_atoi(char *str);
+int	ft_atoi(const char *str);
 
 /* -------------------------------------------------------------------------- */
 /*                           FILE = ./ft_isascii.c                            */

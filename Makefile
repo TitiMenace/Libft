@@ -19,7 +19,7 @@ $(NAME)	:	$(OBJ)
 		ranlib $(NAME)
 
 %.o	:	%.c $(HEADER)
-		gcc -Wall -Wextra -Werror -c $< -o $@
+		$(CC) -Wall -Wextra -Werror -c $< -o $@
 
 clean	:
 		rm -f $(OBJ)
