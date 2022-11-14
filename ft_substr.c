@@ -10,7 +10,7 @@ static int	getlen(char const *s, unsigned int start, size_t len)
 			count++;
 			start++;
 	}
-			return (count);
+	return (count);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -18,7 +18,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*s2;
 	unsigned int	i;
 	unsigned int	count;
-
+	
+	if ((int)start >= ft_strlen(s))
+		return (ft_strdup(""));
 	if (!s)
 		return (NULL);
 	count = getlen(s, start, len);
@@ -35,3 +37,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	s2[i] = 0;
 	return (s2);
 }
+
+/*#include <stdio.h>
+int	main()
+{
+	printf("%s", ft_substr("tripouille", 0, 42000));
+}
+*/

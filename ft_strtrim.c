@@ -12,55 +12,79 @@
 
 #include "libft.h"
 
-static int	checkcharset(char c, const char *set)
+static int	checkcharset(char s, char const *set)
 {
 	int	i;
-	
+
 	i = 0;
 	while (set[i])
 	{
-		if (c == set[i])
-				return(1);
+		if (set[i] == s)
+			return (1);
 		i++;
 	}
 	return (0);
 }
 
-static int	get_len(const char *str, const char *set)
+static int getlen(char const *s1, char const *set)
 {
 	int	i;
 	int	count;
 
-	i = -1;
+	i = 0;
 	count = 0;
-	while (str[++i])
+	while(checkcharset(s1[i], set) == 1 && s1[i])
+			i++;
+	while (checkcharset(s1[i], set) == 0 && s1[i])
 	{
-		if (checkcharset(str[i], set) == 0)
+			i++;
 			count++;
 	}
 	return (count);
 }
 
+static char *alloc_trim(char const *s1, char const *set)
+{
+	char *dest;
+	int count;
+	
+	count = getlen(s1, set);
+	dest = malloc(sizeof(char) * count + 1);
+	if (!dest)
+		return (NULL);
+	return (dest);
+
+}
+
 char *ft_strtrim(char const *s1, char const *set)
 {
+	char *str;
 	int	i;
 	int	j;
-	char *dest;
 
 	if (!set)
 		return (ft_strdup(s1));
-	if (!s1)
+	str = alloc_trim(s1, set);
+	if (!str)
 		return (NULL);
-	dest = malloc(sizeof(char) * get_len(s1, set) + 1);
-	if (!dest)
-		return (NULL);
-	i = -1;
-	j = -1;
-	while (s1[++i])
+	j = 0;
+	while (checkcharset(s1[j], set) == 1 && s1[j])
+			j++;
+	i = 0;
+	while(checkcharset(s1[j], set) == 0 && s1[j])
 	{
-		if (checkcharset(s1[i], set) == 0)
-				dest[++j] = s1[i];
+		str[i] = s1[j];
+		i++;
+		j++;
 	}
-	dest[j++] = '\0';
-	return (dest);
+	str[i] = '\0';
+	return (str);
 }
+
+/*
+#include <stdio.h>
+int	main()
+{
+	printf("%s", ft_strtrim("yesmecyes", "yes"));
+}
+*/

@@ -1,76 +1,101 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 05:21:56 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/08 05:22:58 by tschecro         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-#include "libft.h"
-
-static int	ft_ischarset(char c, char charset)
+int	checkcharset(char c, const char *set)
 {
-	if (c == charset)
-		return (1);
-	return (0);
-}
+	int	i;
 
-static unsigned int	ft_countword(char const *str, char charset)
-{
-	unsigned int	i;
-	unsigned int	count;
-
-	count = 0;
 	i = 0;
-	while (str[i])
+	while (set[i])
 	{
-		while (ft_ischarset(str[i], charset) && str[i])
-			i++;
-		if (!ft_ischarset(str[i], charset) &&str[i])
-			count++;
-		while (!ft_ischarset(str[i], charset) && str[i])
-			i++;
-	}
-	return (count);
-}
-
-static int	lenword(char const *str, char charset)
-{
-	unsigned int	i;
-
-	i = 0;
-	while(ft_ischarset(str[i], charset) && str[i])
+		if (set[i] == c)
+				return (1);
 		i++;
-	return (i);
-}
-
-char	**ft_split(const char *s, char c)
-{
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	x;
-	char			**out;
-
-	out = malloc(sizeof(char *) * (ft_countword(s, c) + 1));
-	if (out == NULL || s == NULL)
-		return (0);
-	i = 0;
-	x = 0;
-	while (x < ft_countword(s, c))
-	{
-		j = 0;
-		while (ft_ischarset(s[i], c) && s[i])
-			i++;
-		out[x] = malloc(sizeof(char) * (lenword(&s[i], c) + 1));
-		while (!ft_ischarset(s[i], c) && s[i])
-			out[x][j++] = s[i++];
-		out[x][j] = 0;
-		x++;
 	}
-	out[x] = 0;
-	return (out);
 }
+
+size_t	countword(const char *s, const char *set)
+{	
+		size_t	count;
+		int	i;
+
+		i = 0;
+		count = 0;
+		while (s[i] && checkcharset(s[i], set) == 1)
+			i++;
+		while(s[i])
+		{
+			if(checkcharset(s[i], set) == 0 && (checkcharset(s1\[i+1], set) == 1 || s[i+1] == '\0'))
+					count++;
+			i++;
+		}
+		return (count);
+}
+
+char	**init_tab(size_t count)
+{
+	char	**dest;
+
+	dest = malloc(sizeof(char *) * count + 1);
+	if (!dest)
+			return (NULL);
+	return (dest);
+}
+
+char	*fill_str(const char *s, const char *set)
+{
+	char *dest;
+	int i;
+
+	dest = s;
+	i = 0;
+	while (checkcharset(dest[i], set) == 1)
+			i++;
+	while (dest[i])
+	{
+		if (checkcharset(dest[i], set) == 1)
+				dest[i] = '\0';
+		i++:
+	}
+	return (dest);
+}
+
+char	**ft_split(const char *s, const char *set)
+{
+	char **dest;
+	size_t	count;
+	int	i;
+	int	j;
+	char *str;
+
+	str = fill_str(s, set);
+	count = countword(s, set);
+	dest = init_tab(count);
+	i = -1;
+	j = -1;
+	while(i <= count + 1 && str[++j])
+	{
+			while (checkcharset(str[++j], set) == 1)
+			dest[++i] = ft_strdup(&str[j]);
+			if(!dest[i])
+			{
+				while(--i <= 0)
+					free(dest[i--]);
+			}
+			while(str[++j])
+				j++;
+	}
+	dest[i] = (NULL);
+}
+
+
+
+
+
+
+
+tab = malloc(sizeof(char *) * count + sizeof(char) * strlen(str) - nbcharset + count);:wq
+
+
+
+
+
+
 
