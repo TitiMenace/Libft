@@ -61,7 +61,9 @@ char *ft_strtrim(char const *s1, char const *set)
 	char *str;
 	int	i;
 	int	j;
+	int	end;
 
+	end = ft_strlen(s1);
 	if (!set)
 		return (ft_strdup(s1));
 	str = alloc_trim(s1, set);
@@ -69,9 +71,11 @@ char *ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	j = 0;
 	while (checkcharset(s1[j], set) == 1 && s1[j])
-			j++;
+		j++;
+	while (checkcharset(s1[end], set) == 1 && s1[end])
+		end--;
 	i = 0;
-	while(checkcharset(s1[j], set) == 0 && s1[j])
+	while(j < end)
 	{
 		str[i] = s1[j];
 		i++;
@@ -80,11 +84,3 @@ char *ft_strtrim(char const *s1, char const *set)
 	str[i] = '\0';
 	return (str);
 }
-
-/*
-#include <stdio.h>
-int	main()
-{
-	printf("%s", ft_strtrim("yesmecyes", "yes"));
-}
-*/
