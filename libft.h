@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2022/11/09 08:54:26 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:08:22 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 /* -------------------------------------------------------------------------- */
 /*                           FILE = ./ft_strmapi.c                            */
 /* -------------------------------------------------------------------------- */
-char	*ft_strmapi(char const *s, char(*f)(unsigned int, char*));
+char	*ft_strmapi(char const *s, char(*f)(unsigned int, char));
 
 /* -------------------------------------------------------------------------- */
 /*                            FILE = ./ft_strchr.c                            */
