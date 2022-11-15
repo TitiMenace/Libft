@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:03:10 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/08 05:05:13 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/15 02:09:09 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,6 +14,9 @@
 void	*ft_memmove(void *dest, void *src, size_t count)
 {
 	size_t	i;
+
+	if (!dest && !src && count)
+		return (NULL);
 
 	if (dest > src)
 	{

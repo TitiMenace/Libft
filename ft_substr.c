@@ -2,7 +2,7 @@
 
 static int	getlen(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	count;
+	size_t	count;
 	
 	count = 1;
 	while(s[start] && count <= len)
@@ -16,8 +16,8 @@ static int	getlen(char const *s, unsigned int start, size_t len)
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*s2;
-	unsigned int	i;
-	unsigned int	count;
+	size_t			i;
+	size_t			count;
 	
 	if ((int)start >= ft_strlen(s))
 		return (ft_strdup(""));
