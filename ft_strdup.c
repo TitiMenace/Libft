@@ -6,18 +6,18 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:17:14 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/08 05:18:14 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/16 21:41:49 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_strdup(const char *str)
 {
-	char *dest;
-	int	i;
+	char	*dest;
+	int		i;
 
 	dest = malloc(sizeof(char) * ft_strlen(str) + 1);
-	if(!dest)
+	if (!dest)
 		return (NULL);
 	i = 0;
 	while (str[i])

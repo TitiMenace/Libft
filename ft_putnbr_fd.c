@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:08:28 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/08 05:08:46 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/16 21:41:11 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,11 +14,11 @@
 void	ft_putnbr_fd(int nb, int fd)
 {
 	unsigned int	i;
-	
+
 	if (fd)
 	{
 		i = 0;
-		if  (nb < 0)
+		if (nb < 0)
 		{
 			i = nb * -1;
 			ft_putchar_fd('-', fd);

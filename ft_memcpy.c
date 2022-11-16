@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:02:32 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/15 02:05:39 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/16 20:24:04 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,7 +15,7 @@ void	*ft_memcpy(const void *dest, const void *src, size_t count)
 {
 	size_t	i;
 
-	if(!dest && !src && count)
+	if (!dest && !src && count)
 		return (NULL);
 	i = 0;
 	while (i < count)

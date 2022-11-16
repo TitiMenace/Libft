@@ -6,15 +6,16 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:30:11 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/15 01:03:35 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/16 21:40:44 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 #include <stdio.h>
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_start;
-	
+
 	new_start = NULL;
 	if (lst)
 	{	
@@ -25,7 +26,6 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	while (lst != NULL)
 	{
-		
 		ft_lstadd_back(&new_start, ft_lstnew((*f)(lst->content)));
 		if (!new_start)
 		{

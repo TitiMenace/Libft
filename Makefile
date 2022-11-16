@@ -6,10 +6,9 @@
 #    By: tschecro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 01:57:46 by tschecro          #+#    #+#              #
-#    Updated: 2022/11/15 02:23:18 by tschecro         ###   ########.fr        #
+#    Updated: 2022/11/16 20:07:00 by tschecro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 SRC		=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isascii.c ft_isalnum.c ft_isalpha.c ft_isdigit.c \
             		ft_isprint.c ft_itoa.c ft_memcpy.c ft_memmove.c \
 			ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c \
