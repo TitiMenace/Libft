@@ -6,7 +6,7 @@
 #    By: tschecro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 01:57:46 by tschecro          #+#    #+#              #
-#    Updated: 2022/11/16 20:07:00 by tschecro         ###   ########.fr        #
+#    Updated: 2022/11/16 21:53:18 by tschecro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 SRC		=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isascii.c ft_isalnum.c ft_isalpha.c ft_isdigit.c \
@@ -17,7 +17,7 @@ SRC		=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isascii.c ft_isalnum.c ft_isalpha.c f
             		ft_tolower.c ft_toupper.c ft_memchr.c ft_memcmp.c\
 
 SRC_BONUS 	=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
-            		ft_lstiteri.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c \
+            		ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c \
 
 
 HEADER		=	libft.h

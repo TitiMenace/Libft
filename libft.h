@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:41:50 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/16 21:21:12 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/16 21:53:07 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdint.h>
 
 typedef struct s_list
 {
@@ -195,7 +196,7 @@ char	**ft_split(char const *s, char c);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 
 /* -------------------------------------------------------------------------- */
-/*                           FILE = ./ft_lstiteri.c                           */
+/*                           FILE = ./ft_lstiter.c                            */
 /* -------------------------------------------------------------------------- */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
