@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:56:39 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/14 19:57:27 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:50:10 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ char	**ft_split(char const *s, char c)
 	unsigned int	x;
 	char			**out;
 
+	if (!s)
+		return (NULL);
 	out = malloc(sizeof(char *) * (ft_countword(s, c) + 1));
 	if (out == NULL || s == NULL)
-		return (0);
+		return (NULL);
 	i = 0;
 	x = 0;
 	while (x < ft_countword(s, c))

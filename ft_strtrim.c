@@ -6,81 +6,68 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:20:47 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/08 05:21:39 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:47:57 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	checkcharset(char s, char const *set)
+static int	is_charset(char c, char const *charset)
 {
 	int	i;
 
 	i = 0;
-	while (set[i])
+	while (charset[i])
 	{
-		if (set[i] == s)
+		if (charset[i] == c)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-static int getlen(char const *s1, char const *set)
+static int	count_char(char const *s1, char const *set)
 {
 	int	i;
+	int	j;
 	int	count;
 
+	j = ft_strlen((char *)s1) - 1;
 	i = 0;
 	count = 0;
-	while(checkcharset(s1[i], set) == 1 && s1[i])
-			i++;
-	while (checkcharset(s1[i], set) == 0 && s1[i])
+	while (is_charset(s1[i], set) && s1[i])
+		i++;
+	while (is_charset(s1[j], set) && j > i)
+		j--;
+	while (i <= j)
 	{
-			i++;
-			count++;
+		i++;
+		count++;
 	}
 	return (count);
 }
 
-static char *alloc_trim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *dest;
-	int count;
-	
-	count = getlen(s1, set);
-	dest = malloc(sizeof(char) * count + 1);
-	if (!dest)
+	int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !set)
 		return (NULL);
-	return (dest);
-
-}
-
-char *ft_strtrim(char const *s1, char const *set)
-{
-	char *str;
-	int	i;
-	int	j;
-	int	end;
-
-	end = ft_strlen(s1);
-	if (!set)
-		return (ft_strdup(s1));
-	str = alloc_trim(s1, set);
+	str = malloc(sizeof(char) * (count_char(s1, set) + 1));
 	if (!str)
 		return (NULL);
-	j = 0;
-	while (checkcharset(s1[j], set) == 1 && s1[j])
-		j++;
-	while (checkcharset(s1[end], set) == 1 && s1[end])
-		end--;
-	i = 0;
-	while(j < end)
+	while (is_charset(s1[i], set) && s1[i])
+		i++;
+	while (j < count_char(s1, set))
 	{
-		str[i] = s1[j];
+		str[j] = s1[i];
 		i++;
 		j++;
 	}
-	str[i] = '\0';
+	str[j] = 0;
 	return (str);
 }

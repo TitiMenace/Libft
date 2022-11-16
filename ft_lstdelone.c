@@ -6,14 +6,17 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:28:27 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/14 22:41:48 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:54:27 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst != NULL)
+	
+	if (!del)
+		return ;
+	if (lst)
 	{
 		del(lst->content);
 		free(lst);

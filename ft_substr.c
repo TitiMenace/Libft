@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/16 18:46:26 by tschecro          #+#    #+#             */
+/*   Updated: 2022/11/16 18:46:28 by tschecro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	getlen(char const *s, unsigned int start, size_t len)
@@ -19,10 +31,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t			i;
 	size_t			count;
 	
-	if ((int)start >= ft_strlen(s))
-		return (ft_strdup(""));
 	if (!s)
 		return (NULL);
+	if ((int)start >= ft_strlen(s))
+		return (ft_strdup(""));
+	
 	count = getlen(s, start, len);
 	s2 = malloc(sizeof(char) * count);
 	if (!s2)
