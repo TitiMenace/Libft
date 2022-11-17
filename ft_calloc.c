@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 05:18:22 by tschecro          #+#    #+#             */
-/*   Updated: 2022/11/16 20:25:42 by tschecro         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:46:08 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,8 +14,8 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*out;
-
-	if (nmemb >= SIZE_MAX / size)
+	
+	if (size && nmemb >= SIZE_MAX / size)
 		return (NULL);
 	out = malloc (size * nmemb);
 	if (!out)
